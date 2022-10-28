@@ -23,7 +23,7 @@ class Appointment extends Component {
         <button className="Back" onClick={this.back}>
           « Back
         </button>
-        <button className="Next" onClick={this.continue}>
+        <button className="proceed" onClick={this.continue}>
           Submit »
         </button>
       </>

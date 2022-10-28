@@ -9,7 +9,6 @@ class PersonalInfo extends Component {
   render() {
     const {
       firstName,
-      lastName,
       number,
       installation,
       current,
@@ -23,6 +22,7 @@ class PersonalInfo extends Component {
         <h2 style={{ textAlign: "center" }}>
           Enter the details for the Quick Feasibility
         </h2>
+        <br /><br /><br />
         <div className="parent">
           <div className="left">
             <label>
@@ -30,15 +30,8 @@ class PersonalInfo extends Component {
                 type="text"
                 name="firstName"
                 value={firstName}
-                placeholder="First Name"
+                placeholder=" Name"
                 onChange={handleChange("firstName")}
-              />
-              <input
-                type="text"
-                name="lastName"
-                value={lastName}
-                placeholder="Last Name"
-                onChange={handleChange("lastName")}
               />
             </label>
             <label>
@@ -66,6 +59,7 @@ class PersonalInfo extends Component {
               name="city"
               onChange={handleChange("city")}
             >
+              <option value="">Please Select the City you want to shift</option>
               <option value="Adilabad">Adilabad</option>{" "}
               <option value="Agra">Agra</option>{" "}
               <option value="Ahmedabad">Ahmedabad</option>{" "}
@@ -795,8 +789,8 @@ class PersonalInfo extends Component {
           </div>
         </div>
 
-        <button className="Next" onClick={this.continue}>
-          Next »
+        <button className="proceed" onClick={this.continue}>
+          Proceed »
         </button>
       </>
     );

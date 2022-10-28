@@ -31,7 +31,7 @@ input[type="date"] {
   outline: none;
   font-weight: 400;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-  height: 32px;
+  height: 70px;
   line-height: 1.3;
 }
 input[type="text"] {
@@ -43,14 +43,14 @@ input[type="text"] {
   border-style: solid;
   border-radius: 0;
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   font-size: 14px;
   padding: 6px 10px;
   box-sizing: border-box;
   outline: none;
   font-weight: 400;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-  height: 32px;
+  height: 50px;
   line-height: 1.3;
 }
 select {
@@ -62,14 +62,14 @@ select {
   border-style: solid;
   border-radius: 0;
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   font-size: 14px;
   padding: 6px 10px;
   box-sizing: border-box;
   outline: none;
   font-weight: 400;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-  height: 32px;
+  height: 50px;
   line-height: 1.3;
 }
 input[type="number"] {
@@ -81,14 +81,14 @@ input[type="number"] {
   border-style: solid;
   border-radius: 0;
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   font-size: 14px;
   padding: 6px 10px;
   box-sizing: border-box;
   outline: none;
   font-weight: 400;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-  height: 32px;
+  height: 40px;
   line-height: 1.3;
 }
 .map {
@@ -119,12 +119,24 @@ input[type="number"] {
   font-weight: 400;
   padding: 0;
 }
+.proceed{
+  background-color:red;
+  color: white;
+  padding: 15px 70px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.proceed:hover{
+    background-color: #37843a;
+
+}
 .Next {
   background-color: #4caf50;
   color: white;
   padding: 10px;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   margin: 10px 10px 0 0;
   cursor: pointer;
 }
@@ -136,14 +148,15 @@ input[type="number"] {
   background-color: #7aa07c;
 }
 .Back {
-  background-color: #c77f27;
-  color: white;
+  border-color: red;
+  border-radius: 10px;
+  color: red;
   padding: 10px;
-  border: none;
-  border-radius: 3px;
   margin: 10px 10px 0 0;
   cursor: pointer;
 }
 .Back:hover {
-  background-color: #9e631b;
+  background-color: #1c66a7;
+  color: white;
+  border-color: white;
 }

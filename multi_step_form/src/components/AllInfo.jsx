@@ -12,7 +12,6 @@ class AllInfo extends Component {
   render() {
     const {
       firstName,
-      lastName,
       number,
       installation,
       current,
@@ -24,14 +23,15 @@ class AllInfo extends Component {
     return (
       <>
         <h2>Please Confirm your Address for Fibernet installation:</h2>
+        <br />
+
         <div className="parent">
           <div>
             First Name: <b>{firstName}</b>
             <br />
             <br />
-            Last Name: <b>{lastName}</b>
-            <br />
             City: <b>{city}</b>
+            <br />
             <br />
             Shifting Address: <b>{shiftaddress}</b>
             <br />
@@ -40,9 +40,9 @@ class AllInfo extends Component {
             <br />
             <br />
             <button className="Back" onClick={this.back}>
-              « Back
+              « Change
             </button>
-            <button className="Next" onClick={this.continue}>
+            <button className="proceed" onClick={this.continue}>
               Confirm and Continue »
             </button>
           </div>
