@@ -12,7 +12,7 @@ class Ekyc extends Component {
   render() {
     return (
       <>
-        <label htmlFor="">
+        <label>
           <div className="flex">
             <div>
               {" "}
@@ -35,6 +35,12 @@ class Ekyc extends Component {
             </div>
           </div>
         </label>
+        <button className="Back" onClick={this.back}>
+          « Back
+        </button>
+        <button className="proceed" onClick={this.continue}>
+          Skip »
+        </button>
       </>
     );
   }

@@ -80,7 +80,8 @@ export class StepForm extends Component {
     if (step === 3)
       return <Appointment prevStep={this.prevStep} nextStep={this.nextStep} />;
 
-    if (step === 4) return <Ekyc />;
+    if (step === 4)
+      return <Ekyc prevStep={this.prevStep} nextStep={this.nextStep} />;
   };
 
   render() {

@@ -3,17 +3,23 @@ import React, { Component } from "react";
 class Appointment extends Component {
   continue = (e) => {
     e.preventDefault();
-    this.props.nextStep();
+    let date = document.getElementById("date").value;
+    if (date.length === 0) {
+      alert("Please select the date");
+    } else {
+      this.props.nextStep();
+    }
   };
   back = (e) => {
     e.preventDefault();
+
     this.props.prevStep();
   };
   render() {
     return (
       <>
         <h2>Please Proceed to Book an Appointment</h2>
-        <input type="date" />
+        <input id="date" type="date" />
         <label htmlFor="">
           <input type="checkbox" /> I hereby agree to the shifting charges
         </label>

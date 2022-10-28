@@ -3,7 +3,25 @@ import React, { Component } from "react";
 class PersonalInfo extends Component {
   continue = (e) => {
     e.preventDefault();
-    this.props.nextStep();
+    let name = document.getElementById("name").value;
+    let num = document.getElementById("num").value;
+    let curr = document.getElementById("curr").value;
+    let install = document.getElementById("install").value;
+    let shift = document.getElementById("shift").value;
+    let pin = document.getElementById("pin").value;
+
+    if (
+      // name.length === 0 &&
+      // num.length === 0 &&
+      // curr.length === 0 &&
+      // install.length === 0 &&
+      // shift.length === 0 &&
+      pin.length === 0
+    ) {
+      alert("please fill all the inputs");
+    } else {
+      this.props.nextStep();
+    }
   };
 
   render() {
@@ -22,11 +40,14 @@ class PersonalInfo extends Component {
         <h2 style={{ textAlign: "center" }}>
           Enter the details for the Quick Feasibility
         </h2>
-        <br /><br /><br />
+        <br />
+        <br />
+        <br />
         <div className="parent">
           <div className="left">
             <label>
               <input
+                id="name"
                 type="text"
                 name="firstName"
                 value={firstName}
@@ -36,6 +57,7 @@ class PersonalInfo extends Component {
             </label>
             <label>
               <input
+                id="num"
                 type="number"
                 name="number"
                 value={number}
@@ -45,6 +67,7 @@ class PersonalInfo extends Component {
             </label>
             <label>
               <input
+                id="curr"
                 type="text"
                 name="current"
                 value={current}
@@ -735,6 +758,7 @@ class PersonalInfo extends Component {
             </label>
             <label>
               <input
+                id="install"
                 type="text"
                 name="installation"
                 value={installation}
@@ -770,6 +794,7 @@ class PersonalInfo extends Component {
             <br />
             <label>
               <input
+                id="shift"
                 type="text"
                 name="shiftaddress"
                 value={shiftaddress}
@@ -779,6 +804,7 @@ class PersonalInfo extends Component {
             </label>
             <label>
               <input
+                id="pin"
                 type="number"
                 name="pincode"
                 value={pincode}
