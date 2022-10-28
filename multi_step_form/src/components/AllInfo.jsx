@@ -18,6 +18,7 @@ class AllInfo extends Component {
       current,
       shiftaddress,
       pincode,
+      city,
       handleChange,
     } = this.props;
     return (
@@ -30,6 +31,7 @@ class AllInfo extends Component {
             <br />
             Last Name: <b>{lastName}</b>
             <br />
+            City: <b>{city}</b>
             <br />
             Shifting Address: <b>{shiftaddress}</b>
             <br />
@@ -44,8 +46,13 @@ class AllInfo extends Component {
               Confirm and Continue »
             </button>
           </div>
-          <div>
-            <img src="https://png.pngitem.com/pimgs/s/63-630819_location-clipart-flat-map-location-map-clip-art.png"></img>
+          <div className="mapdiv">
+            <iframe
+              title="gmap"
+              name="gMap"
+              className="map"
+              src={`https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
+            ></iframe>
           </div>
         </div>
       </>

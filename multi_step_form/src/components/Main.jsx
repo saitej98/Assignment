@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PersonalInfo from "./PersonalInfo";
 import AllInfo from "./AllInfo";
 import Appointment from "./Appointment";
+import Ekyc from "./Ekyc";
 
 export class StepForm extends Component {
   state = {
@@ -17,6 +18,7 @@ export class StepForm extends Component {
     installation: "",
     shiftaddress: "",
     current: "",
+    city: "",
   };
 
   nextStep = () => {
@@ -47,10 +49,8 @@ export class StepForm extends Component {
       installation,
       current,
       pincode,
+      city,
       shiftaddress,
-      jobTitle,
-      jobCompany,
-      jobLocation,
     } = this.state;
 
     if (step === 1)
@@ -71,22 +71,16 @@ export class StepForm extends Component {
           installation={installation}
           current={current}
           shiftaddress={shiftaddress}
+          city={city}
           pincode={pincode}
           prevStep={this.prevStep}
           nextStep={this.nextStep}
         />
       );
     if (step === 3)
-      return (
-        <Appointment
-          firstName={firstName}
-          lastName={lastName}
-          jobTitle={jobTitle}
-          jobCompany={jobCompany}
-          jobLocation={jobLocation}
-          prevStep={this.prevStep}
-        />
-      );
+      return <Appointment prevStep={this.prevStep} nextStep={this.nextStep} />;
+
+    if (step === 4) return <Ekyc />;
   };
 
   render() {
@@ -94,7 +88,7 @@ export class StepForm extends Component {
 
     return (
       <>
-        <h2>Step {step} of 3.</h2>
+        <h2>Step {step} of 4.</h2>
         {this.showStep()}
       </>
     );
