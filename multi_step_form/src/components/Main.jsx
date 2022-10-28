@@ -3,6 +3,8 @@ import PersonalInfo from "./PersonalInfo";
 import AllInfo from "./AllInfo";
 import Appointment from "./Appointment";
 import Ekyc from "./Ekyc";
+import Upload from "./Upload";
+import Thankyou from "./Thankyou";
 
 export class StepForm extends Component {
   state = {
@@ -82,6 +84,9 @@ export class StepForm extends Component {
 
     if (step === 4)
       return <Ekyc prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 5)
+      return <Upload prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 6) return <Thankyou />;
   };
 
   render() {
@@ -89,7 +94,7 @@ export class StepForm extends Component {
 
     return (
       <>
-        <h2>Step {step} of 4.</h2>
+        <h2>Step {step} of 6.</h2>
         {this.showStep()}
       </>
     );
