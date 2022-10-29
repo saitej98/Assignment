@@ -4,10 +4,14 @@ import Main from "./components/Main";
 import FileUpload from "./components/fileUpload";
 function App() {
   return (
-    <div className="App">
+    <div>
+      <div className="App"></div>
+      <div className="plain"></div>
       <div className="Content">
-        <Main />
-        {/* <FileUpload /> */}
+        <div className="borders">
+          <Main />
+          {/* <FileUpload/> */}
+        </div>
       </div>
     </div>
   );

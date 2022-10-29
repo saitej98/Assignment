@@ -4,7 +4,6 @@ import AllInfo from "./AllInfo";
 import Appointment from "./Appointment";
 import Ekyc from "./Ekyc";
 import Upload from "./Upload";
-import Thankyou from "./Thankyou";
 
 export class StepForm extends Component {
   state = {
@@ -30,6 +29,20 @@ export class StepForm extends Component {
       step: step + 1,
     });
   };
+  substep = () => {
+    const { step } = this.state;
+
+    this.setState({
+      step: step + 0.1,
+    });
+  };
+  fullstep = () => {
+    const { step } = this.state;
+
+    this.setState({
+      step: step + 0.9,
+    });
+  };
 
   prevStep = () => {
     const { step } = this.state;
@@ -37,7 +50,12 @@ export class StepForm extends Component {
       step: step - 1,
     });
   };
-
+ prevsubStep = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step - 0.1,
+    });
+  };
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
   };
@@ -58,13 +76,13 @@ export class StepForm extends Component {
     if (step === 1)
       return (
         <PersonalInfo
-          nextStep={this.nextStep}
+          nextStep={this.substep}
           handleChange={this.handleChange}
           firstName={firstName}
           lastName={lastName}
         />
       );
-    if (step === 2)
+    if (step === 1.1)
       return (
         <AllInfo
           firstName={firstName}
@@ -75,18 +93,17 @@ export class StepForm extends Component {
           shiftaddress={shiftaddress}
           city={city}
           pincode={pincode}
-          prevStep={this.prevStep}
-          nextStep={this.nextStep}
+          prevStep={this.prevsubStep}
+          nextStep={this.fullstep}
         />
       );
-    if (step === 3)
+    if (step === 2)
       return <Appointment prevStep={this.prevStep} nextStep={this.nextStep} />;
 
-    if (step === 4)
+    if (step === 3)
       return <Ekyc prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 5)
+    if (step === 4)
       return <Upload prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 6) return <Thankyou />;
   };
 
   render() {
@@ -94,7 +111,7 @@ export class StepForm extends Component {
 
     return (
       <>
-        <h2>Step {step} of 6.</h2>
+        <h2>Step {step} of 4.</h2>
         {this.showStep()}
       </>
     );

@@ -12,11 +12,11 @@ class PersonalInfo extends Component {
     let pin = document.getElementById("pin").value;
 
     if (
-      name.length === 0 &&
-      num.length === 0 &&
-      curr.length === 0 &&
-      install.length === 0 &&
-      shift.length === 0 &&
+      // name.length === 0 &&
+      // num.length === 0 &&
+      // curr.length === 0 &&
+      // install.length === 0 &&
+      // shift.length === 0 &&
       pin.length === 0
     ) {
       alert("please fill all the inputs");

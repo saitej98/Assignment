@@ -1,57 +1,57 @@
-// import React from "react";
+import React from "react";
 
-// function fileUpload() {
-//   window.onload = function () {
-//     //Check File API support
-//     if (window.File && window.FileList && window.FileReader) {
-//       var filesInput = document.getElementById("files");
+function fileUpload() {
+  function previewBeforeUpload(id) {
+    document.querySelector("#" + id).addEventListener("change", function (e) {
+      if (e.target.files.length == 0) {
+        return;
+      }
+      let file = e.target.files[0];
+      let url = URL.createObjectURL(file);
+      document.querySelector("#" + id + "-preview div").innerText = file.name;
+      document.querySelector("#" + id + "-preview img").src = url;
+    });
+  }
 
-//       filesInput.addEventListener("change", function (event) {
-//         var files = event.target.files; //FileList object
-//         var output = document.getElementById("imgThumbnailPreview");
+  previewBeforeUpload("file-1");
+  previewBeforeUpload("file-2");
+  previewBeforeUpload("file-3");
+  return (
+    <div>
+      <div class="form">
+        <h2>Preview Image Before Upload</h2>
+        <div class="grid">
+          <div class="form-element">
+            <input type="file" id="file-1" accept="image/*" />
+            <label for="file-1" id="file-1-preview">
+              <img src="https://bit.ly/3ubuq5o" alt="" />
+              <div>
+                <span>+</span>
+              </div>
+            </label>
+          </div>
+          <div class="form-element">
+            <input type="file" id="file-2" accept="image/*" />
+            <label for="file-2" id="file-2-preview">
+              <img src="https://bit.ly/3ubuq5o" alt="" />
+              <div>
+                <span>+</span>
+              </div>
+            </label>
+          </div>
+          <div class="form-element">
+            <input type="file" id="file-3" accept="image/*" />
+            <label for="file-3" id="file-3-preview">
+              <img src="https://bit.ly/3ubuq5o" alt="" />
+              <div>
+                <span>+</span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-//         for (var i = 0; i < files.length; i++) {
-//           var file = files[i];
-
-//           //Only pics
-//           if (!file.type.match("image")) continue;
-
-//           var picReader = new FileReader();
-
-//           picReader.addEventListener("load", function (event) {
-//             var picSrc = event.target.result;
-
-//             var imgThumbnailElem =
-//               "<div class='imgThumbContainer'><div class='IMGthumbnail' ><img  src='" +
-//               picSrc +
-//               "'" +
-//               "title='" +
-//               file.name +
-//               "'/><div><span>as</span></div>";
-
-//             output.innerHTML = output.innerHTML + imgThumbnailElem;
-//           });
-
-//           //Read the image
-//           picReader.readAsDataURL(file);
-//         }
-//       });
-//     } else {
-//       alert("Your browser does not support File API");
-//     }
-//   };
-//   return (
-//     <div>
-//       <div class="header">File API - File Reader</div>
-//       <div style="padding:14px">
-//         <label for="files">Select multiple files: </label>
-//         <input id="files" type="file" multiple />
-//       </div>
-//       <div style="padding:14px; margin:auto">
-//         <div id="imgThumbnailPreview"></div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default fileUpload;
+export default fileUpload;

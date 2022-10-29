@@ -39,12 +39,6 @@ class AllInfo extends Component {
             Pincode:<b>{pincode}</b>
             <br />
             <br />
-            <button className="Back" onClick={this.back}>
-              « Change
-            </button>
-            <button className="proceed" onClick={this.continue}>
-              Confirm and Continue »
-            </button>
           </div>
           <div className="mapdiv">
             <iframe
@@ -54,6 +48,14 @@ class AllInfo extends Component {
               src={`https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
             ></iframe>
           </div>
+        </div>
+        <div className="parent">
+          <button className="Back" onClick={this.back}>
+            « Change
+          </button>
+          <button className="proceed" onClick={this.continue}>
+            Confirm and Continue »
+          </button>
         </div>
       </>
     );

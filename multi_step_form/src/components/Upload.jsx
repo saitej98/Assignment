@@ -4,7 +4,6 @@ import { Component } from "react";
 class Upload extends Component {
   continue = (e) => {
     e.preventDefault();
-    this.props.nextStep();
   };
   back = (e) => {
     e.preventDefault();
@@ -64,7 +63,7 @@ class Upload extends Component {
         </div>
         <br />
         <br />
-        <div style={{ marginLeft: "300px" }}>
+        <div className="parent">
           {" "}
           <button className="Back" onClick={this.back}>
             « Back
