@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class PersonalInfo extends Component {
   continue = (e) => {
@@ -11,11 +12,11 @@ class PersonalInfo extends Component {
     let pin = document.getElementById("pin").value;
 
     if (
-      name.length === 0 &&
-      num.length === 0 &&
-      curr.length === 0 &&
-      install.length === 0 &&
-      shift.length === 0 &&
+      // name.length === 0 &&
+      // num.length === 0 &&
+      // curr.length === 0 &&
+      // install.length === 0 &&
+      // shift.length === 0 &&
       pin.length === 0
     ) {
       alert("please fill all the inputs");
@@ -23,7 +24,32 @@ class PersonalInfo extends Component {
       this.props.nextStep();
     }
   };
+  handleLive = (e) => {
+    // console.log("here");
+    axios
+      .get("https://ipinfo.io/json?token=45420d190496ea")
+      .then((response) => {
+        let city = response.data.city;
+        let region = response.data.region;
+        let postal = response.data.postal;
 
+        let install = document.getElementById("install");
+        install.disabled = "false";
+        install.value = city + "," + region;
+        let pin = document.getElementById("pin");
+        pin.value=postal
+      })
+      .catch((status) => {
+        console.log("Failed to detect Live Locaion", status);
+      });
+  };
+  reset = (e) => {
+    let install = document.getElementById("install");
+    install.value = "";
+    install.disabled = "true";
+    let pin = document.getElementById("pin");
+    pin.value = "";
+  };
   render() {
     const {
       firstName,
@@ -749,10 +775,20 @@ class PersonalInfo extends Component {
           <div className="right">
             <label>
               <div>
-                <input type="radio" value="" name="location" /> Use Current
-                Location
-                <input type="radio" value="" name="location" checked /> Enter
-                Address
+                <input
+                  type="radio"
+                  value=""
+                  name="location"
+                  onClick={this.handleLive}
+                />{" "}
+                Use Current Location
+                <input
+                  type="radio"
+                  value=""
+                  name="location"
+                  onClick={this.reset}
+                />{" "}
+                Enter Address
               </div>
               <br />
             </label>
